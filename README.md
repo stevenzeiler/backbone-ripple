@@ -2,7 +2,7 @@
 
 A set of Backbone models and collections meant to sync with the Ripple-REST API server.
 
-> **Status: dormant since 2014, and only partly built.** The last commit is from October 2014 (version 0.1.0). This was a 2014 experiment on the Ripple network. The README below was written first and promises more than the code delivers. This documentation pass did not run it.
+> **Status: dormant since 2014, and only partly built.** The last commit is from October 2014 (version 0.1.0). This was a 2014 experiment on the Ripple network. The original README was written a month before the code and promised more than the code delivers. This documentation pass did not run it.
 
 Ripple-REST is documented at http://dev.ripple.com/ripple-rest.html (the 2014 docs address).
 
@@ -24,7 +24,7 @@ The repo is named `backbone-ripple`, but `package.json` says `backbone-sync-ripp
     cd backbone-ripple
     npm install
 
-The README originally suggested `npm install --save backbone-ripple`. Whether that package exists on npm was not checked.
+The README originally suggested `npm install --save backbone-ripple`, but no package by that name is on the npm registry (checked 2026-11-20).
 
 ## Usage
 
@@ -47,7 +47,7 @@ None. No environment variables or keys. Server addresses are written into the `l
 
 ## How it works
 
-Each file in `lib/` extends `Backbone.Model` or `Backbone.Collection` with a `url` and a `parse` function that unwraps the Ripple-REST response (for example `response.balances`). `lib/backbone.js` attaches jQuery to Backbone so `fetch` can make HTTP calls in Node.
+Each file in `lib/` extends `Backbone.Model` or `Backbone.Collection`. The collections and `Account` set a `url`, and the collections and `Payment` add a `parse` function that unwraps the Ripple-REST response (for example `response.balances`). `Balance` is an empty model. `lib/backbone.js` sets `Backbone.$` to jQuery, the library Backbone uses for `fetch`. Whether that works in Node without a DOM was not checked.
 
 ## Tests
 

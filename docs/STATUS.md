@@ -6,7 +6,7 @@ Last reviewed: 2026-11-20 (github-audit pass 02, docs only).
 
 Nothing was run in this pass. By reading the code, five small Backbone classes exist (Account, Balance, Balances, Payment, Payments), each a few lines long.
 
-## What is broken or unknown
+## What's broken or unknown
 
 - `TrustLine`, `TrustLines` and `Notification`, listed in the original README, were never written.
 - `Account.setBalances` calls `balances.setAccount`, which `Balances` does not define, so the account to balances link is incomplete.
